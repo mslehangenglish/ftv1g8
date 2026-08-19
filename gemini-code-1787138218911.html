@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Tiếng Anh 8 - Ms Lê Hằng English</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-grad-1: #8854C0;
+            --bg-grad-2: #FDCB6E;
+            --bg-grad-3: #00C9A7;
+            --bg-grad-4: #E84393;
+            --correct-color: #00D26A;
+            --correct-shadow: #00A352;
+            --wrong-color: #FF4757;
+            --wrong-shadow: #D63031;
+            --btn-default: #F0F3F8;
+            --btn-shadow: #CBD0D9;
+            --text-dark: #2D3436;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', 'Quicksand', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative;
+            padding: 20px 10px 60px 10px;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SVG Background Patterns */
+        .bg-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath fill='%23FFFFFF' d='M30 15 l3 7 h7 l-5 5 l2 7 l-7-4 l-7 4 l2-7 l-5-5 h7 z M80 70 l4 9 h9 l-7 6 l3 9 l-9-5 l-9 5 l3-9 l-7-6 h9 z M15 85 a 8 8 0 1 0 16 0 a 8 8 0 1 0 -16 0 M90 20 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0'%3E%3C/path%3E%3C/svg%3E");
+            animation: floatingPattern 25s linear infinite;
+        }
+
+        @keyframes floatingPattern {
+            from { background-position: 0 0; }
+            to { background-position: 500px 1000px; }
+        }
+
+        .main-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .teacher-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 8px 22px;
+            border-radius: 25px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #8854C0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            margin-bottom: 12px;
+        }
+
+        /* Banner Notification */
+        .notice-banner {
+            background: #FFF3BF;
+            border: 3px solid #FCC419;
+            border-radius: 20px;
+            padding: 16px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
+            animation: pulseBanner 2s infinite alternate;
+        }
+
+        @keyframes pulseBanner {
+            0% { transform: scale(0.99); }
+            100% { transform: scale(1.01); }
+        }
+
+        .notice-title {
+            color: #E67700;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .notice-body {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #495057;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .notice-highlight {
+            display: block;
+            margin-top: 6px;
+            color: #D9480F;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* Question Cards */
+        .question-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border: 4px solid #FFFFFF;
+            transition: transform 0.2s ease;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: #E84393;
+            color: white;
+            font-weight: 800;
+            padding: 3px 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #8854C0;
+            color: white;
+            font-weight: 900;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            margin-left: 6px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #2D3436;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        .passage-box {
+            background: #EBF8FF;
+            border: 2px solid #3182CE;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #2B6CB0;
+            font-weight: 700;
+        }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: var(--btn-default);
+            border: 2px solid #DCDFE6;
+            border-radius: 18px;
+            padding: 14px 18px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2D3436;
+            cursor: pointer;
+            box-shadow: 0 6px 0 var(--btn-shadow);
+            transition: all 0.15s ease;
+            text-align: left;
+            position: relative;
+            outline: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 var(--btn-shadow);
+            background: #FFFFFF;
+        }
+
+        .option-btn:active:not(:disabled) {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--btn-shadow);
+        }
+
+        .option-btn.correct {
+            background: var(--correct-color) !important;
+            color: white !important;
+            border-color: #00B159 !important;
+            box-shadow: 0 6px 0 var(--correct-shadow) !important;
+        }
+
+        .option-btn.wrong {
+            background: var(--wrong-color) !important;
+            color: white !important;
+            border-color: #E03B4B !important;
+            box-shadow: 0 6px 0 var(--wrong-shadow) !important;
+            animation: shake 0.4s ease;
+        }
+
+        .fill-input-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .text-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 18px;
+            border: 3px solid #CBD0D9;
+            border-radius: 16px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #2D3436;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .text-input:focus {
+            border-color: #8854C0;
+        }
+
+        .check-btn {
+            background: #8854C0;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #6C38A1;
+            transition: all 0.15s ease;
+        }
+
+        .check-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #6C38A1;
+        }
+
+        .check-btn:active:not(:disabled) {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #6C38A1;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .explanation-box {
+            margin-top: 20px;
+            background: #F8F9FA;
+            border-left: 6px solid #8854C0;
+            border-radius: 12px;
+            padding: 18px;
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .exp-title {
+            font-weight: 900;
+            color: #8854C0;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exp-step {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #2D3436;
+        }
+
+        .exp-step-title {
+            font-weight: 800;
+            color: #0984E3;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .submit-btn {
+            background: #00C9A7;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 900;
+            padding: 16px 48px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 8px 0 #00967D;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 11px 0 #00967D;
+        }
+
+        .submit-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 3px 0 #00967D;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .score-badge {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #FDCB6E;
+            color: #D63031;
+            font-size: 2.2rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            box-shadow: 0 8px 0 #E1B12C;
+        }
+
+        .modal-feedback {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #2D3436;
+            margin: 15px 0 25px 0;
+            line-height: 1.5;
+        }
+
+        .close-modal-btn {
+            background: #8854C0;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #6C38A1;
+        }
+
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-patterns"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="main-wrapper">
+        <header>
+            <div class="teacher-tag">Giáo viên tạo: Ms Lê Hằng English</div>
+        </header>
+
+        <div class="notice-banner">
+            <div class="notice-title">⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️</div>
+            <div class="notice-body">
+                Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng/cấu trúc mới vào vở để học thì mới thực sự giỏi lên.
+                Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!
+                <span class="notice-highlight">* Kéo tới đâu, làm tới đó! *</span>
+            </div>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="submit-section">
+            <button class="submit-btn" onclick="submitQuiz()">NỘP BÀI THI 🚀</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="result-modal">
+        <div class="modal-content">
+            <div class="score-badge" id="modal-score">0/95</div>
+            <h2 style="color: #8854C0; font-weight: 900;" id="modal-title">KẾT QUẢ BÀI THI</h2>
+            <div class="modal-feedback" id="modal-msg"></div>
+            <button class="close-modal-btn" onclick="closeModal()">Đóng & Xem Lại Bài</button>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q1",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "1. He's crazy _____ photography - he's got all the gear.",
+    "correctAnswers": [
+      "about"
+    ],
+    "explanation": {
+      "step1": "Anh ấy rất phát cuồng vì nhiếp ảnh - anh ấy có đầy đủ trang thiết bị.",
+      "step2": "be crazy about sth: phát cuồng/đam mê cái gì",
+      "step3": "Cụm tính từ 'crazy about' chỉ sự đam mê mãnh liệt.",
+      "step4": "Các từ khác không đi với 'crazy'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q2",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "2. Instead of shopping with friends, you can do _____ together.",
+    "correctAnswers": [
+      "puzzles"
+    ],
+    "explanation": {
+      "step1": "Thay vì đi mua sắm với bạn bè, các bạn có thể cùng nhau giải câu đố/xếp hình.",
+      "step2": "do puzzles: giải câu đố / chơi xếp hình",
+      "step3": "Động từ 'do' kết hợp với 'puzzles' thành cụm 'do puzzles'.",
+      "step4": "Các từ khác không đi với 'do' để chỉ trò chơi trí tuệ."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q3",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "3. _____ the Internet is fun, but it's also a time waster.",
+    "correctAnswers": [
+      "Surfing",
+      "surfing"
+    ],
+    "explanation": {
+      "step1": "Lướt mạng Internet thì vui, nhưng nó cũng là một trò tiêu tốn thời gian.",
+      "step2": "surfing the Internet: lướt mạng Internet",
+      "step3": "Danh động từ 'Surfing' đứng đầu câu làm chủ ngữ.",
+      "step4": "Các từ khác không đi ghép với 'the Internet'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q4",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "4. My hobby is Chinese chess. Are you _____ in learning it?",
+    "correctAnswers": [
+      "interested"
+    ],
+    "explanation": {
+      "step1": "Sở thích của tớ là cờ tướng. Cậu có hứng thú học nó không?",
+      "step2": "be interested in sth: có hứng thú với cái gì",
+      "step3": "Cụm tính từ 'interested in' đi với động từ thêm -ing.",
+      "step4": "Các từ khác không đi với giới từ 'in'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q5",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "5. Sports _____ people with similar interests in a collective effort.",
+    "correctAnswers": [
+      "connect"
+    ],
+    "explanation": {
+      "step1": "Thể thao kết nối những người có cùng sở thích trong một nỗ lực tập thể.",
+      "step2": "connect people: kết nối mọi người",
+      "step3": "Động từ 'connect' đóng vai trò là vị ngữ chính của câu.",
+      "step4": "Các từ khác không hợp nghĩa kết nối con người."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q6",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "6. Anna likes Physics, but she's not too _____ on Maths.",
+    "correctAnswers": [
+      "keen"
+    ],
+    "explanation": {
+      "step1": "Anna thích môn Vật lý, nhưng cô ấy không quá hào hứng với môn Toán.",
+      "step2": "be keen on sth: hào hứng/thích cái gì",
+      "step3": "Cụm tính từ 'keen on' diễn tả sự thích thú.",
+      "step4": "Các từ khác không đi với giới từ 'on'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q7",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "7. Text _____ enables people to keep in close contact at all times.",
+    "correctAnswers": [
+      "messaging"
+    ],
+    "explanation": {
+      "step1": "Nhắn tin văn bản giúp mọi người giữ liên lạc chặt chẽ mọi lúc.",
+      "step2": "text messaging: việc nhắn tin văn bản",
+      "step3": "Cụm danh từ ghép 'Text messaging' đóng vai trò chủ ngữ.",
+      "step4": "Các từ khác không ghép với 'Text' thành cụm truyền thông."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q8",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "8. Mr. Henry is _____ sports, and he works out with a trainer several days a week.",
+    "correctAnswers": [
+      "into"
+    ],
+    "explanation": {
+      "step1": "Thầy Henry rất mê thể thao, và thầy tập luyện với huấn luyện viên vài ngày một tuần.",
+      "step2": "be into sth: say mê/thích cái gì",
+      "step3": "Cấu trúc 'be into sports' chỉ sự yêu thích tập luyện.",
+      "step4": "Các từ khác không đi sau 'is' để chỉ sở thích thể thao."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q9",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "9. You need a little knowledge and the right tools when you're doing _____.",
+    "correctAnswers": [
+      "DIY"
+    ],
+    "explanation": {
+      "step1": "Bạn cần một chút kiến thức và đúng dụng cụ khi tự làm đồ handmade (DIY).",
+      "step2": "do DIY: tự làm đồ thủ công/sửa chữa",
+      "step3": "Cụm từ 'do DIY' (Do It Yourself) chỉ việc tự tay làm đồ.",
+      "step4": "Các từ khác không hợp với cụm 'right tools'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec III - Q10",
+    "section": "Section III: Vocabulary Gap Fill",
+    "question": "10. Lots of people are _____ of going fishing or gardening in the countryside.",
+    "correctAnswers": [
+      "fond"
+    ],
+    "explanation": {
+      "step1": "Rất nhiều người thích đi câu cá hoặc làm vườn ở nông thôn.",
+      "step2": "be fond of sth: thích cái gì",
+      "step3": "Cụm tính từ 'fond of' đi với danh động từ.",
+      "step4": "Các từ khác không đi với giới từ 'of'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q1",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "1. There isn't enough wind to _____ a kite, so let's walk home.",
+    "correctAnswers": [
+      "fly"
+    ],
+    "explanation": {
+      "step1": "Không có đủ gió để thả diều, cho nên chúng ta hãy đi bộ về nhà thôi.",
+      "step2": "fly a kite: thả diều",
+      "step3": "Động từ 'fly' đi với 'a kite' mang nghĩa thả diều.",
+      "step4": "Các động từ khác không ghép với 'a kite'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q2",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "2. Our family _____ the cabbage and turnips from our field.",
+    "correctAnswers": [
+      "harvests",
+      "harvest"
+    ],
+    "explanation": {
+      "step1": "Gia đình tớ thu hoạch bắp cải và củ cải từ cánh đồng của gia đình.",
+      "step2": "harvest: thu hoạch nông sản",
+      "step3": "Động từ 'harvest/harvests' chỉ việc gặt hái nông sản.",
+      "step4": "Các từ khác không chỉ hành động thu hái rau củ."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q3",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "3. Their fields _____ about 5 km, or 3 miles, north to south.",
+    "correctAnswers": [
+      "stretch"
+    ],
+    "explanation": {
+      "step1": "Các cánh đồng của họ trải dài khoảng 5 km, hay 3 dặm, từ bắc xuống nam.",
+      "step2": "stretch: trải dài",
+      "step3": "Động từ 'stretch' miêu tả diện tích trải dài của cánh đồng.",
+      "step4": "Các từ khác không miêu tả khoảng cách địa lý."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q4",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "4. I helped her _____ the cows, to feed the chickens, and to plant carrots.",
+    "correctAnswers": [
+      "milk"
+    ],
+    "explanation": {
+      "step1": "Tớ đã giúp cô ấy vắt sữa bò, cho gà ăn và trồng cà rốt.",
+      "step2": "milk the cows: vắt sữa bò",
+      "step3": "Động từ 'milk' đi với 'the cows' có nghĩa là vắt sữa.",
+      "step4": "Các từ khác không chỉ hành động thu hoạch sữa bò."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q5",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "5. It is important to _____ rice grain as soon as possible after harvesting.",
+    "correctAnswers": [
+      "dry"
+    ],
+    "explanation": {
+      "step1": "Điều quan trọng là phải phơi khô hạt lúa càng sớm càng tốt sau khi thu hoạch.",
+      "step2": "dry rice grain: phơi khô hạt lúa",
+      "step3": "Động từ 'dry' chỉ việc làm khô nông sản sau khi gặt.",
+      "step4": "Các từ khác không chỉ việc xử lý ẩm hạt lúa."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q6",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "6. Her farm aims to grow enough barley to _____ the pigs in all seasons.",
+    "correctAnswers": [
+      "feed"
+    ],
+    "explanation": {
+      "step1": "Trang trại của cô ấy hướng tới trồng đủ lúa mạch để cho lợn ăn vào tất cả các mùa.",
+      "step2": "feed the pigs: cho lợn ăn",
+      "step3": "Động từ 'feed' đi với vật nuôi chỉ việc cho ăn.",
+      "step4": "Các từ khác không chỉ việc cung cấp thức ăn cho vật nuôi."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q7",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "7. The farmers _____ their fertile fields with oxen in the traditional way.",
+    "correctAnswers": [
+      "plough"
+    ],
+    "explanation": {
+      "step1": "Những người nông dân cày cày xới các cánh đồng phì nhiêu của họ bằng trâu bò theo cách truyền thống.",
+      "step2": "plough the fields: cày ruộng",
+      "step3": "Động từ 'plough' chỉ hành động cày xới đất ruộng.",
+      "step4": "Các từ khác không chỉ công việc cày ruộng."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q8",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "8. If we don't _____ the grain soon, it will start rotting in the silos.",
+    "correctAnswers": [
+      "unload"
+    ],
+    "explanation": {
+      "step1": "Nếu chúng ta không dỡ hạt ngũ cốc ra sớm, nó sẽ bắt đầu bị mục nát trong tháp chứa.",
+      "step2": "unload the grain: dỡ/trút ngũ cốc",
+      "step3": "Động từ 'unload' chỉ việc dỡ hàng hóa/ngũ cốc xuống.",
+      "step4": "Các từ khác không diễn tả việc trút dỡ nông sản."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q9",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "9. Do you want to know how to _____ fruit trees in your own garden?",
+    "correctAnswers": [
+      "grow"
+    ],
+    "explanation": {
+      "step1": "Cậu có muốn biết cách trồng cây ăn quả trong vườn nhà mình không?",
+      "step2": "grow fruit trees: trồng cây ăn quả",
+      "step3": "Động từ 'grow' đi với cây trồng chỉ việc trồng trọt chăm sóc.",
+      "step4": "Các từ khác không đi với 'fruit trees'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec IV - Q10",
+    "section": "Section IV: Verbs Gap Fill",
+    "question": "10. You can _____ fish with a hook in a small pond near my house.",
+    "correctAnswers": [
+      "catch"
+    ],
+    "explanation": {
+      "step1": "Cậu có thể câu/bắt cá bằng lưỡi câu ở một cái ao nhỏ gần nhà tớ.",
+      "step2": "catch fish: câu cá / bắt cá",
+      "step3": "Động từ 'catch' đi với 'fish' và 'hook' chỉ việc câu cá.",
+      "step4": "Các từ khác không đi với lưỡi câu 'hook'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q1",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "1. Google Books allows web users to _____ an index of thousands of books.",
+    "correctAnswers": [
+      "browse"
+    ],
+    "explanation": {
+      "step1": "Google Books cho phép người dùng mạng duyện/tra cứu danh mục hàng ngàn cuốn sách.",
+      "step2": "browse an index: duyệt/xem danh mục",
+      "step3": "Động từ 'browse' chỉ việc lướt xem/tra cứu thông tin.",
+      "step4": "Các từ khác không hợp nghĩa duyệt trang sách."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q2",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "2. _____ at school can improve communication and increase the efficiency of studies among students.",
+    "correctAnswers": [
+      "Teamwork"
+    ],
+    "explanation": {
+      "step1": "Làm việc nhóm ở trường có thể cải thiện giao tiếp và tăng hiệu quả học tập giữa các học sinh.",
+      "step2": "Teamwork: làm việc nhóm",
+      "step3": "Danh từ 'Teamwork' làm chủ ngữ chỉ kỹ năng hợp tác.",
+      "step4": "Các từ khác không chỉ hoạt động hợp tác nhóm."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q3",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "3. When you receive your school bus information, please _____ over it carefully.",
+    "correctAnswers": [
+      "check"
+    ],
+    "explanation": {
+      "step1": "Khi cậu nhận được thông tin xe buýt trường, làm ơn hãy kiểm tra kỹ lưỡng.",
+      "step2": "check over sth: kiểm tra kỹ cái gì",
+      "step3": "Cụm động từ 'check over' chỉ việc rà soát kiểm tra.",
+      "step4": "Các từ khác không đi với 'over' mang nghĩa rà soát."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q4",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "4. In the United States, YouTube has become the most popular _____ platform.",
+    "correctAnswers": [
+      "social media"
+    ],
+    "explanation": {
+      "step1": "Ở Hoa Kỳ, YouTube đã trở thành nền tảng mạng xã hội phổ biến nhất.",
+      "step2": "social media platform: nền tảng mạng xã hội",
+      "step3": "Cụm danh từ 'social media' đi với 'platform'.",
+      "step4": "Các từ khác không chỉ nền tảng mạng xã hội."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q5",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "5. If you can't _____ to the network, it might be a problem with your Wi-Fi router or internet service provider.",
+    "correctAnswers": [
+      "connect"
+    ],
+    "explanation": {
+      "step1": "Nếu cậu không thể kết nối với mạng, đó có thể là sự cố với bộ phát Wi-Fi hoặc nhà mạng.",
+      "step2": "connect to the network: kết nối với mạng",
+      "step3": "Động từ 'connect' đi với giới từ 'to'.",
+      "step4": "Các từ khác không đi với 'to the network'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q6",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "6. My computer requests me to _____ with my old username and password, but I don't remember them.",
+    "correctAnswers": [
+      "log on"
+    ],
+    "explanation": {
+      "step1": "Máy tính của tớ yêu cầu tớ đăng nhập bằng tên người dùng và mật khẩu cũ, nhưng tớ không nhớ.",
+      "step2": "log on: đăng nhập tài khoản",
+      "step3": "Cụm động từ 'log on' chỉ việc nhập username/password đăng nhập.",
+      "step4": "Các từ khác không đi với username/password."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q7",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "7. The website has a _____ interface, so students will have an easy experience on it.",
+    "correctAnswers": [
+      "user-friendly"
+    ],
+    "explanation": {
+      "step1": "Trang web có một giao diện thân thiện với người dùng, vì vậy học sinh sẽ có trải nghiệm dễ dàng.",
+      "step2": "user-friendly interface: giao diện thân thiện",
+      "step3": "Tính từ ghép 'user-friendly' bổ nghĩa cho 'interface'.",
+      "step4": "Các từ khác không bổ nghĩa cho thuộc tính giao diện."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q8",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "8. Do high school students worry about their _____ and education more than younger students?",
+    "correctAnswers": [
+      "schoolwork"
+    ],
+    "explanation": {
+      "step1": "Học sinh cấp 3 có lo lắng về bài vở ở trường và giáo dục nhiều hơn học sinh nhỏ tuổi không?",
+      "step2": "schoolwork (n): bài vở ở trường",
+      "step3": "Danh từ 'schoolwork' đi cùng 'education' chỉ việc học.",
+      "step4": "Các từ khác không thuộc mảng nhiệm vụ học tập."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q9",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "9. The International Student _____ and Blogs provides students with talking place to post questions and comments for each other.",
+    "correctAnswers": [
+      "forums"
+    ],
+    "explanation": {
+      "step1": "Các diễn đàn và blog học sinh quốc tế cung cấp cho học sinh nơi thảo luận để đăng câu hỏi và bình luận.",
+      "step2": "student forums: các diễn đàn học sinh",
+      "step3": "Danh từ 'forums' chỉ nơi trao đổi thảo luận trực tuyến.",
+      "step4": "Các từ khác không chỉ diễn đàn thảo luận."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec V - Q10",
+    "section": "Section V: Vocabulary Gap Fill",
+    "question": "10. Lots of teens reported having experienced _____, which is defined as any external force of influence on our decisions.",
+    "correctAnswers": [
+      "peer pressure"
+    ],
+    "explanation": {
+      "step1": "Nhiều thanh thiếu niên báo cáo đã trải qua áp lực đồng lứa, cái được định nghĩa là lực tác động từ bên ngoài lên quyết định.",
+      "step2": "peer pressure: áp lực đồng lứa",
+      "step3": "Thuật ngữ 'peer pressure' chỉ áp lực từ bạn bè đồng lứa.",
+      "step4": "Các từ khác không đúng định nghĩa áp lực bạn bè."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q1",
+    "section": "Section VI: Comparative Forms",
+    "question": "1. Average incomes in rural areas are rising _____ those in the city. (slow)",
+    "correctAnswers": [
+      "more slowly than",
+      "slower than"
+    ],
+    "explanation": {
+      "step1": "Thu nhập trung bình ở khu vực nông thôn đang tăng chậm hơn so với ở thành phố.",
+      "step2": "slow (adv) -> more slowly than / slower than",
+      "step3": "So sánh hơn của trạng từ bổ nghĩa cho động từ 'rising'.",
+      "step4": "Cần có 'than' vì có đối tượng so sánh phía sau."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q2",
+    "section": "Section VI: Comparative Forms",
+    "question": "2. The conditions they're living in are _____ we thought. (bad)",
+    "correctAnswers": [
+      "worse than"
+    ],
+    "explanation": {
+      "step1": "Điều kiện sống của họ tồi tệ hơn chúng tớ đã nghĩ.",
+      "step2": "bad (adj) -> worse than",
+      "step3": "So sánh hơn bất quy tắc của 'bad' là 'worse than'.",
+      "step4": "Không dùng 'badder' hay 'more bad'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q3",
+    "section": "Section VI: Comparative Forms",
+    "question": "3. Your book looks _____ mine. Can I borrow it for some days? (interesting)",
+    "correctAnswers": [
+      "more interesting than"
+    ],
+    "explanation": {
+      "step1": "Cuốn sách của cậu trông thú vị hơn của tớ. Tớ có thể mượn vài ngày không?",
+      "step2": "interesting (adj dài) -> more interesting than",
+      "step3": "Tính từ dài dùng cấu trúc `more + adj + than`.",
+      "step4": "Không thêm đuôi '-er' vào tính từ dài."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q4",
+    "section": "Section VI: Comparative Forms",
+    "question": "4. The evening in the countryside is often _____ that in the city. (peaceful)",
+    "correctAnswers": [
+      "more peaceful than"
+    ],
+    "explanation": {
+      "step1": "Buổi tối ở nông thôn thường thanh bình hơn ở thành phố.",
+      "step2": "peaceful (adj dài) -> more peaceful than",
+      "step3": "Tính từ dài dùng cấu trúc `more + adj + than`.",
+      "step4": "Không dùng 'peacefuler'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q5",
+    "section": "Section VI: Comparative Forms",
+    "question": "5. Many families in the suburbs are _____ the ones you meet in the urban. (happy)",
+    "correctAnswers": [
+      "happier than"
+    ],
+    "explanation": {
+      "step1": "Nhiều gia đình ở ngoại thành hạnh phúc hơn những gia đình cậu gặp ở nội thành.",
+      "step2": "happy (adj 2 âm tiết đuôi y) -> happier than",
+      "step3": "Tính từ đuôi '-y' đổi thành '-ier' rồi thêm 'than'.",
+      "step4": "Không dùng 'more happy than'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q6",
+    "section": "Section VI: Comparative Forms",
+    "question": "6. With the help of technology we can live _____ ever before. (convenient)",
+    "correctAnswers": [
+      "more conveniently than"
+    ],
+    "explanation": {
+      "step1": "Nhờ có công nghệ chúng ta có thể sống tiện nghi hơn bao giờ hết.",
+      "step2": "convenient (adv) -> more conveniently than",
+      "step3": "Trạng từ bổ nghĩa cho động từ 'live' dạng so sánh hơn.",
+      "step4": "Cần đuôi trạng từ '-ly' và 'more... than'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q7",
+    "section": "Section VI: Comparative Forms",
+    "question": "7. Watching football is one of Britain's top leisure activities, even _____ eating out. (popular)",
+    "correctAnswers": [
+      "more popular than"
+    ],
+    "explanation": {
+      "step1": "Xem bóng đá là một trong những hoạt động giải trí hàng đầu ở Anh, thậm chí phổ biến hơn cả ăn tiệm.",
+      "step2": "popular (adj dài) -> more popular than",
+      "step3": "So sánh hơn của tính từ dài 'popular' đi với 'than'.",
+      "step4": "Không dùng 'popularer'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q8",
+    "section": "Section VI: Comparative Forms",
+    "question": "8. Henderson said that he could run _____ anybody else in the class. (fast)",
+    "correctAnswers": [
+      "faster than"
+    ],
+    "explanation": {
+      "step1": "Henderson đã nói rằng cậu ấy có thể chạy nhanh hơn bất kỳ ai trong lớp.",
+      "step2": "fast (adv ngắn) -> faster than",
+      "step3": "Trạng từ ngắn 'fast' thêm đuôi '-er' thành 'faster than'.",
+      "step4": "Không dùng 'more fast than'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q9",
+    "section": "Section VI: Comparative Forms",
+    "question": "9. This year's harvest season seems to come a week _____ usual. (early)",
+    "correctAnswers": [
+      "earlier than"
+    ],
+    "explanation": {
+      "step1": "Mùa thu hoạch năm nay dường như đến sớm hơn một tuần so với thường lệ.",
+      "step2": "early (adv đuôi -y) -> earlier than",
+      "step3": "Đổi 'y' thành 'i' rồi thêm '-er' + 'than'.",
+      "step4": "Không dùng 'more early than'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VI - Q10",
+    "section": "Section VI: Comparative Forms",
+    "question": "10. All these students are good, but some work _____ others. (hard)",
+    "correctAnswers": [
+      "harder than"
+    ],
+    "explanation": {
+      "step1": "Tất cả các học sinh này đều giỏi, nhưng một số bạn làm việc chăm chỉ hơn những bạn khác.",
+      "step2": "hard (adv ngắn) -> harder than",
+      "step3": "Trạng từ ngắn 'hard' thêm đuôi '-er' thành 'harder than'.",
+      "step4": "Không dùng 'more hard than' hay 'hardly'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q1",
+    "section": "Section VII: Multiple Choice",
+    "question": "1. _____ DIY means you do something yourself without the help of experts.",
+    "options": [
+      "A. Playing",
+      "B. Doing",
+      "C. Making",
+      "D. Taking"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Tự làm đồ thủ công (DIY) có nghĩa là bạn tự tay làm việc gì đó mà không cần chuyên gia giúp.",
+      "step2": "• do DIY: tự làm đồ thủ công/sửa chữa",
+      "step3": "Động từ 'Doing' kết hợp với DIY thành cụm 'Doing DIY'.",
+      "step4": "Loại A, C, D vì không đi với cụm từ DIY."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q2",
+    "section": "Section VII: Multiple Choice",
+    "question": "2. She loves making _____, such as pottery and carving wood.",
+    "options": [
+      "A. crafts",
+      "B. origami",
+      "C. stamps",
+      "D. bracelets"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Cô ấy thích làm đồ thủ công, chẳng hạn như làm gốm và chạm khắc gỗ.",
+      "step2": "• make crafts: làm đồ thủ công",
+      "step3": "Danh từ tổng quát bao gồm làm gốm và chạm khắc gỗ là 'crafts'.",
+      "step4": "Loại B (xếp giấy), C (tem), D (vòng tay) quá hẹp."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q3",
+    "section": "Section VII: Multiple Choice",
+    "question": "3. Melinda _____ hanging out because she is a sociable person.",
+    "options": [
+      "A. detests",
+      "B. hates",
+      "C. dislikes",
+      "D. fancies"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Melinda thích đi chơi vì cô ấy là một người hòa đồng.",
+      "step2": "• fancy + V-ing: thích làm gì",
+      "step3": "Vì cô ấy hòa đồng ('sociable person') nên cô ấy thích ('fancies') đi chơi.",
+      "step4": "Loại A, B, C vì đều mang nghĩa ghét/không thích."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q4",
+    "section": "Section VII: Multiple Choice",
+    "question": "4. Many people like _____ the Internet with their mobile phones.",
+    "options": [
+      "A. surfing",
+      "B. blogging",
+      "C. emailing",
+      "D. communicating"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Nhiều người thích lướt mạng Internet bằng điện thoại di động của họ.",
+      "step2": "• surf the Internet: lướt mạng Internet",
+      "step3": "Cụm động từ cố định 'surfing the Internet'.",
+      "step4": "Loại B, C, D vì không đi với 'the Internet' chỉ hành động lướt mạng."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q5",
+    "section": "Section VII: Multiple Choice",
+    "question": "5. It's helpful to learn life _____ or a foreign language in free time.",
+    "options": [
+      "A. tricks",
+      "B. skills",
+      "C. kits",
+      "D. tools"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Rất hữu ích khi học các kỹ năng sống hoặc ngoại ngữ vào thời gian rảnh rỗi.",
+      "step2": "• life skills (n phr): kỹ năng sống",
+      "step3": "Cụm danh từ ghép cố định 'life skills' (kỹ năng sống).",
+      "step4": "Loại A (mẹo), C (bộ dụng cụ), D (công cụ)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q6",
+    "section": "Section VII: Multiple Choice",
+    "question": "6. He doesn't mind going window _____ in the mall with his friends.",
+    "options": [
+      "A. having",
+      "B. selling",
+      "C. buying",
+      "D. shopping"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Cậu ấy không phiền khi đi ngắm đồ qua cửa kính ở trung tâm thương mại.",
+      "step2": "• go window shopping: đi ngắm đồ qua cửa kính",
+      "step3": "Cụm thành ngữ cố định 'window shopping'.",
+      "step4": "Loại A, B, C không ghép thành cụm 'window shopping'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q7",
+    "section": "Section VII: Multiple Choice",
+    "question": "7. Samuel is sociable so he can _____ a lot of friends at school.",
+    "options": [
+      "A. make",
+      "B. take",
+      "C. do",
+      "D. work"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Samuel rất hòa đồng nên cậu ấy có thể kết giao được nhiều bạn bè ở trường.",
+      "step2": "• make friends: kết bạn",
+      "step3": "Cụm động từ cố định 'make friends' (kết bạn).",
+      "step4": "Loại B, C, D vì không ghép với 'friends' thành cụm kết bạn."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q8",
+    "section": "Section VII: Multiple Choice",
+    "question": "8. I usually make a phone call to friends instead of _____.",
+    "options": [
+      "A. listening",
+      "B. messaging",
+      "C. reading",
+      "D. typing"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Tớ thường gọi điện cho bạn bè thay vì nhắn tin.",
+      "step2": "• messaging (v-ing): gửi tin nhắn",
+      "step3": "Hành động giao tiếp nhắn tin đối lập với gọi điện thoại là 'messaging'.",
+      "step4": "Loại A (nghe), C (đọc), D (gõ bàn phím)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q9",
+    "section": "Section VII: Multiple Choice",
+    "question": "9. Farmers traditionally use Tet as _____ opportunity to remember _____ gods of harvest.",
+    "options": [
+      "A. the - the",
+      "B. a - x",
+      "C. x - x",
+      "D. an - the"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Theo truyền thống, nông dân dùng dịp Tết như một cơ hội để tưởng nhớ các vị thần mùa màng.",
+      "step2": "• an opportunity / the gods of harvest",
+      "step3": "'opportunity' bắt đầu bằng nguyên âm dùng 'an'; 'gods of harvest' đã xác định dùng 'the'.",
+      "step4": "Loại A, B, C vì sai mạo từ nguyên âm và xác định."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q10",
+    "section": "Section VII: Multiple Choice",
+    "question": "10. Each Xo Dang village has _____ communal house whose roof looks like _____ axe-head.",
+    "options": [
+      "A. a - the",
+      "B. the - an",
+      "C. the - x",
+      "D. a - an"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Mỗi ngôi làng Xơ Đăng có một ngôi nhà rông mà mái của nó trông giống như một lưỡi rìu.",
+      "step2": "• a communal house / an axe-head",
+      "step3": "Cả hai danh từ số ít chưa xác định; 'axe' bắt đầu bằng nguyên âm /æ/ đi với 'an'.",
+      "step4": "Loại A, B, C dùng sai mạo từ nguyên âm."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q11",
+    "section": "Section VII: Multiple Choice",
+    "question": "11. Mrs. Cohen tried _____ all the housework before going to bed.",
+    "options": [
+      "A. finishing",
+      "B. finish",
+      "C. finishes",
+      "D. to finish"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Bà Cohen đã cố gắng hoàn thành toàn bộ việc nhà trước khi đi ngủ.",
+      "step2": "• try + to-V: cố gắng làm gì",
+      "step3": "Cấu trúc `try + to-V` (cố gắng làm gì).",
+      "step4": "Loại A (try V-ing = thử làm gì); B, C sai dạng."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q12",
+    "section": "Section VII: Multiple Choice",
+    "question": "12. She adores _____ ancient coins and foreign banknotes.",
+    "options": [
+      "A. to collect",
+      "B. to collecting",
+      "C. collecting",
+      "D. collect"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Cô ấy rất mê sưu tầm tiền xu cổ và tiền giấy nước ngoài.",
+      "step2": "• adore + V-ing: mê/thích làm gì",
+      "step3": "Cấu trúc ngữ pháp chỉ sở thích mãnh liệt: `adore + V-ing` -> 'collecting'.",
+      "step4": "Loại A, B, D vì sai dạng V-ing sau 'adore'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q13",
+    "section": "Section VII: Multiple Choice",
+    "question": "13. Unless the weather _____ bad, we _____ the tribal dance at the local festival.",
+    "options": [
+      "A. will be - will see",
+      "B. will be - see",
+      "C. is - will see",
+      "D. is - won't see"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Trừ khi thời tiết xấu, chúng tớ sẽ xem điệu múa bộ lạc ở lễ hội địa phương.",
+      "step2": "• Unless + Present Simple, Will + V-bare",
+      "step3": "Mệnh đề 'Unless' chia hiện tại đơn 'is', mệnh đề chính chỉ tương lai 'will see'.",
+      "step4": "Loại A, B vì dùng will trong mệnh đề unless; D bị ngược nghĩa phủ định."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q14",
+    "section": "Section VII: Multiple Choice",
+    "question": "14. My friend doesn't mind _____ me whenever I am in need.",
+    "options": [
+      "A. to help",
+      "B. helping",
+      "C. help",
+      "D. to helping"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Bạn tớ không phiền lòng khi giúp đỡ tớ bất cứ khi nào tớ gặp khó khăn.",
+      "step2": "• mind + V-ing: phiền lòng làm gì",
+      "step3": "Cấu trúc ngữ pháp: `don't mind + V-ing` -> 'helping'.",
+      "step4": "Loại A, C, D vì không tuân thủ công thức 'mind + V-ing'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q15",
+    "section": "Section VII: Multiple Choice",
+    "question": "15. If you want to pass your exams, you'd better _____ your attitude towards studies!",
+    "options": [
+      "A. to change",
+      "B. changing",
+      "C. to changing",
+      "D. change"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Nếu cậu muốn thi đỗ, tốt hơn hết cậu nên thay đổi thái độ đối với việc học!",
+      "step2": "• had better + V-bare: tốt hơn hết nên làm gì",
+      "step3": "Cấu trúc lời khuyên: `had better ('d better) + V-bare` -> 'change'.",
+      "step4": "Loại A, B, C vì sau 'had better' là động từ nguyên thể không 'to'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q16",
+    "section": "Section VII: Multiple Choice",
+    "question": "16. After harvesting rice, the farmers often _____ it in the sunlight.",
+    "options": [
+      "A. collect",
+      "B. water",
+      "C. dry",
+      "D. plant"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Sau khi thu hoạch lúa, nông dân thường phơi khô lúa dưới ánh nắng mặt trời.",
+      "step2": "• dry (v): phơi khô",
+      "step3": "Hành động phơi nông sản dưới ánh nắng ('in the sunlight') là 'dry'.",
+      "step4": "Loại A (thu gom), B (tưới nước), D (trồng)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q17",
+    "section": "Section VII: Multiple Choice",
+    "question": "17. The farmers were _____ because they warmly welcomed us and accommodated our needs.",
+    "options": [
+      "A. hospitable",
+      "B. healthy",
+      "C. interesting",
+      "D. well-trained"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Những người nông dân rất hiếu khách vì họ chào đón chúng tớ nồng nhiệt và đáp ứng các nhu cầu.",
+      "step2": "• hospitable (adj): hiếu khách",
+      "step3": "Tính cách chào đón nồng nhiệt khách đến chơi ('warmly welcomed') biểu thị sự hiếu khách 'hospitable'.",
+      "step4": "Loại B (khỏe mạnh), C (thú vị), D (được đào tạo)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q18",
+    "section": "Section VII: Multiple Choice",
+    "question": "18. Ploughing the _____ with buffalos is a common cultivation method in the highlands.",
+    "options": [
+      "A. crops",
+      "B. lakes",
+      "C. ponds",
+      "D. fields"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Cày ruộng bằng trâu là một phương pháp trồng trọt phổ biến ở vùng cao.",
+      "step2": "• plough the fields: cày ruộng",
+      "step3": "Hành động cày xới đất trồng trọt thực hiện trên các cánh đồng 'fields'.",
+      "step4": "Loại A (hoa màu), B (hồ nước), C (ao)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q19",
+    "section": "Section VII: Multiple Choice",
+    "question": "19. It was so fun when we came to the point of herding the _____.",
+    "options": [
+      "A. fruit",
+      "B. trees",
+      "C. cattle",
+      "D. poultry"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Thật là vui khi chúng tớ đến đoạn chăn thả gia súc.",
+      "step2": "• herd the cattle: chăn thả gia súc",
+      "step3": "Động từ 'herd' (chăn thả) đi với đàn gia súc 'cattle'.",
+      "step4": "Loại A (trái cây), B (cây cối), D (gia cầm - gia cầm không dùng herd)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q20",
+    "section": "Section VII: Multiple Choice",
+    "question": "20. They got about 30 million tons of grain at the end of the _____ season.",
+    "options": [
+      "A. planting",
+      "B. watering",
+      "C. ploughing",
+      "D. harvesting"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Họ thu được khoảng 30 triệu tấn ngũ cốc vào cuối mùa thu hoạch.",
+      "step2": "• harvesting season (n phr): mùa thu hoạch",
+      "step3": "Mùa thu được sản lượng ngũ cốc ('got tons of grain') là mùa thu hoạch ('harvesting season').",
+      "step4": "Loại A (mùa gieo trồng), B (mùa tưới nước), C (mùa cày ruộng)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q21",
+    "section": "Section VII: Multiple Choice",
+    "question": "21. This year's exam was much _____ than last year's.",
+    "options": [
+      "A. the harder",
+      "B. harder",
+      "C. more hardly",
+      "D. more hard"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Bài thi năm nay khó hơn nhiều so với năm ngoái.",
+      "step2": "• harder than: khó hơn",
+      "step3": "Tính từ ngắn 'hard' có dạng so sánh hơn là 'harder' đi với 'than'.",
+      "step4": "Loại A thừa 'the'; C, D sai công thức tính từ ngắn."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q22",
+    "section": "Section VII: Multiple Choice",
+    "question": "22. The growth rate of rice farms is _____ that of corn farms this year.",
+    "options": [
+      "A. higher more than",
+      "B. high more than",
+      "C. more higher than",
+      "D. higher than"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Tốc độ phát triển của các trang trại lúa cao hơn trang trại ngô trong năm nay.",
+      "step2": "• higher than: cao hơn",
+      "step3": "Tính từ ngắn 'high' có dạng so sánh hơn là 'higher than'.",
+      "step4": "Loại A, B, C sai công thức tính từ ngắn."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q23",
+    "section": "Section VII: Multiple Choice",
+    "question": "23. The development of cities happens _____ than that of the countryside.",
+    "options": [
+      "A. more rapidly",
+      "B. much rapidly",
+      "C. more rapid",
+      "D. more rapidly as"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Sự phát triển của các thành phố diễn ra nhanh chóng hơn so với nông thôn.",
+      "step2": "• more rapidly than: nhanh chóng hơn",
+      "step3": "Bổ nghĩa cho động từ 'happens' cần trạng từ 'rapidly'. So sánh hơn là 'more rapidly than'.",
+      "step4": "Loại B thiếu 'more'; C sai loại từ tính từ; D sai 'as'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q24",
+    "section": "Section VII: Multiple Choice",
+    "question": "24. We could go back to the days when life was _____ it is today.",
+    "options": [
+      "A. slower than",
+      "B. slowlier than",
+      "C. slower",
+      "D. more slowly"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Chúng ta có thể trở lại những ngày mà cuộc sống chậm rãi hơn so với ngày nay.",
+      "step2": "• slower than: chậm hơn",
+      "step3": "So sánh hơn của tính từ ngắn 'slow' đứng sau 'was' là 'slower than'.",
+      "step4": "Loại B, D sai từ; C thiếu 'it is today' cần 'than'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q25",
+    "section": "Section VII: Multiple Choice",
+    "question": "25. I think you'll find going fishing _____ than playing mobile games.",
+    "options": [
+      "A. more relaxing much",
+      "B. much more relaxing",
+      "C. more much relaxing",
+      "D. much relaxing more"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Tớ nghĩ cậu sẽ thấy đi câu cá thư thái hơn nhiều so với chơi game trên điện thoại.",
+      "step2": "• much more relaxing than: thư thái hơn nhiều",
+      "step3": "Nhấn mạnh so sánh hơn tính từ dài 'relaxing': `much + more + adj + than`.",
+      "step4": "Loại A, C, D sai trật tự từ nhấn mạnh 'much'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q26",
+    "section": "Section VII: Multiple Choice",
+    "question": "26. Doing the shopping in the countryside is _____ that in cities.",
+    "options": [
+      "A. the least convenient",
+      "B. less conveniently than",
+      "C. less convenient than",
+      "D. least conveniently"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Việc đi mua sắm ở nông thôn kém tiện nghi hơn so với ở thành phố.",
+      "step2": "• less convenient than: kém tiện nghi hơn",
+      "step3": "Cấu trúc so sánh kém tính từ dài 'convenient': `less + adj + than`.",
+      "step4": "Loại A, D là so sánh nhất; B dùng trạng từ sai sau 'is'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q27",
+    "section": "Section VII: Multiple Choice",
+    "question": "27. Adding fertilizer to the soil will help the plants to grow _____.",
+    "options": [
+      "A. more quick",
+      "B. quicklier",
+      "C. more quickly",
+      "D. quickly more"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Thêm phân bón vào đất sẽ giúp cây trồng phát triển nhanh hơn.",
+      "step2": "• more quickly: nhanh chóng hơn",
+      "step3": "Bổ nghĩa cho động từ 'grow' cần trạng từ 'quickly'. So sánh hơn là 'more quickly'.",
+      "step4": "Loại A (quick là tính từ); B, D sai dạng từ."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q28",
+    "section": "Section VII: Multiple Choice",
+    "question": "28. We like to create and make crafts or _____ art projects to relax.",
+    "options": [
+      "A. give",
+      "B. do",
+      "C. work",
+      "D. make"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Chúng tớ thích sáng tạo làm đồ thủ công hoặc thực hiện các dự án nghệ thuật để thư giãn.",
+      "step2": "• do art projects: thực hiện các dự án nghệ thuật",
+      "step3": "Cụm động từ kết hợp với 'art projects' là 'do art projects'.",
+      "step4": "Loại A, C, D vì 'do' đi chuẩn với dự án 'projects'."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q29",
+    "section": "Section VII: Multiple Choice",
+    "question": "29. If she has a choice of working in a(n) _____ or working at home, she'll do both.",
+    "options": [
+      "A. office",
+      "B. club",
+      "C. forum",
+      "D. library"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Nếu cô ấy có sự lựa chọn làm việc ở một văn phòng hay làm việc tại nhà, cô ấy sẽ làm cả hai.",
+      "step2": "• working in an office: làm việc ở văn phòng",
+      "step3": "Địa điểm làm việc đối lập với 'working at home' là 'working in an office' (văn phòng). Mạo từ 'an' đứng trước 'office'.",
+      "step4": "Loại B (CLB), C (diễn đàn), D (thư viện)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q30",
+    "section": "Section VII: Multiple Choice",
+    "question": "30. A typical La Chi house has three apartments and there's _____ altar in _____ largest apartment.",
+    "options": [
+      "A. an - x",
+      "B. the - a",
+      "C. an - the",
+      "D. the - the"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Một ngôi nhà điển hình của người La Chí có ba gian và có một bàn thờ ở gian lớn nhất.",
+      "step2": "• an altar / the largest apartment",
+      "step3": "'altar' chưa xác định bắt đầu bằng nguyên âm đi với 'an'; 'largest' so sánh nhất đi với 'the'.",
+      "step4": "Loại A, B, D sai mạo từ nguyên âm hoặc mạo từ so sánh nhất."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q31",
+    "section": "Section VII: Multiple Choice",
+    "question": "31. _____ teaches students essential communication and social skills, such as active listening and effective speaking.",
+    "options": [
+      "A. Online learning",
+      "B. Teamwork",
+      "C. Homework",
+      "D. Self-study"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Làm việc nhóm dạy cho học sinh các kỹ năng giao tiếp và xã hội thiết yếu.",
+      "step2": "• Teamwork (n): làm việc nhóm",
+      "step3": "Hoạt động tương tác tập thể dạy kỹ năng giao tiếp lắng nghe và nói là 'Teamwork'.",
+      "step4": "Loại A (học online cá nhân), C (bài tập về nhà), D (tự học)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q32",
+    "section": "Section VII: Multiple Choice",
+    "question": "32. The cinema tickets were sold out, _____ we couldn't watch the movie.",
+    "options": [
+      "A. or",
+      "B. so",
+      "C. otherwise",
+      "D. for"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Vé xem phim đã bán hết sạch, cho nên chúng tớ không thể xem bộ phim đó.",
+      "step2": "• so: cho nên (chỉ kết quả)",
+      "step3": "Mệnh đề 1 (hết vé - nguyên nhân) dẫn đến mệnh đề 2 (không xem được - kết quả) -> dùng 'so'.",
+      "step4": "Loại A (hoặc), C (nếu không thì), D (vì)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q33",
+    "section": "Section VII: Multiple Choice",
+    "question": "33. Chemistry is such a difficult subject; _____, I enjoy learning it.",
+    "options": [
+      "A. nevertheless",
+      "B. moreover",
+      "C. yet",
+      "D. for"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Hóa học là một môn học rất khó; tuy nhiên, tớ lại thích học nó.",
+      "step2": "• nevertheless (adv): tuy nhiên (đứng sau dấu chấm phẩy ';')",
+      "step3": "Trạng từ liên kết chỉ sự đối lập đứng sau dấu chấm phẩy ';' và trước dấu phẩy ',' là 'nevertheless'.",
+      "step4": "Loại B (hơn nữa); C (yet đứng sau dấu phẩy); D (vì)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q34",
+    "section": "Section VII: Multiple Choice",
+    "question": "34. She owned a motorbike, _____ she didn't know how to drive it.",
+    "options": [
+      "A. however",
+      "B. nevertheless",
+      "C. so",
+      "D. yet"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Cô ấy sở hữu một chiếc xe máy, nhưng cô ấy không biết lái nó.",
+      "step2": "• yet (conj): nhưng / tuy vậy (đứng sau dấu phẩy ',')",
+      "step3": "Liên từ kết hợp chỉ sự đối lập đứng trực tiếp sau dấu phẩy ',' nối hai mệnh đề là 'yet'.",
+      "step4": "Loại A, B (however/nevertheless cần chấm phẩy hoặc đầu câu); C (so - chỉ kết quả)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q35",
+    "section": "Section VII: Multiple Choice",
+    "question": "35. _____ students do not know how to start the experiment, the teacher will give step-by-step instructions.",
+    "options": [
+      "A. But",
+      "B. If",
+      "C. Unless",
+      "D. And"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Nếu học sinh không biết bắt đầu bài thí nghiệm như thế nào, giáo viên sẽ hướng dẫn từng bước.",
+      "step2": "• If + S + V, S + will + V-bare",
+      "step3": "Mệnh đề điều kiện loại 1 giả định tình huống 'If students do not know...'.",
+      "step4": "Loại A (nhưng), C (unless = nếu không -> bị ngược nghĩa phủ định kép), D (và)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q36",
+    "section": "Section VII: Multiple Choice",
+    "question": "36. I'll have a week in Da Nang, _____ I'll go to Hoi An for three days.",
+    "options": [
+      "A. or",
+      "B. otherwise",
+      "C. however",
+      "D. but"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Tớ sẽ có một tuần ở Đà Nẵng, tuy nhiên tớ sẽ đi Hội An trong ba ngày.",
+      "step2": "• however (adv): tuy nhiên",
+      "step3": "Trạng từ chỉ sự đối lập/chuyển ý giữa 2 kế hoạch chuyến đi là 'however'.",
+      "step4": "Loại A (hoặc), B (nếu không thì), D (but)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q37",
+    "section": "Section VII: Multiple Choice",
+    "question": "37. I was tired from doing homework late, _____ I had to finish it anyway.",
+    "options": [
+      "A. however",
+      "B. moreover",
+      "C. but",
+      "D. so"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Tớ rất mệt vì làm bài tập muộn, nhưng dù sao tớ cũng phải hoàn thành nó.",
+      "step2": "• but (conj): nhưng",
+      "step3": "Liên từ đứng sau dấu phẩy chỉ sự đối lập nối 2 mệnh đề là 'but'.",
+      "step4": "Loại A (however đứng sau chấm phẩy); B (hơn nữa); D (cho nên)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q38",
+    "section": "Section VII: Multiple Choice",
+    "question": "38. I kept in mind that I would try my best, _____ I didn't study enough.",
+    "options": [
+      "A. nor",
+      "B. for",
+      "C. but",
+      "D. and"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Tớ luôn ghi nhớ rằng tớ sẽ cố gắng hết sức, nhưng tớ đã không học đủ nhiều.",
+      "step2": "• but (conj): nhưng",
+      "step3": "Mối quan hệ đối lập giữa quyết tâm và thực tế thiếu sót -> dùng 'but'.",
+      "step4": "Loại A (cũng không), B (vì), D (và)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q39",
+    "section": "Section VII: Multiple Choice",
+    "question": "39. They had a quarrel; _____, they are friends again now.",
+    "options": [
+      "A. and",
+      "B. yet",
+      "C. or",
+      "D. however"
+    ],
+    "correct": 3,
+    "explanation": {
+      "step1": "Họ đã cãi nhau; tuy nhiên, giờ đây họ đã lại là bạn bè của nhau.",
+      "step2": "• however (adv): tuy nhiên",
+      "step3": "Trạng từ liên kết đứng sau dấu chấm phẩy ';' chỉ sự nhượng bộ đối lập là 'however'.",
+      "step4": "Loại A, B, C vì không đứng sau dấu chấm phẩy chỉ sự đối lập."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q40",
+    "section": "Section VII: Multiple Choice",
+    "question": "40. The function of most _____ in Viet Nam is to provide a space for local people to meet and for ceremonies to be held.",
+    "options": [
+      "A. communal house",
+      "B. town house",
+      "C. apartment",
+      "D. cottage"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Chức năng của hầu hết nhà rông / nhà cộng đồng ở Việt Nam là cung cấp không gian cho người dân tụ họp.",
+      "step2": "• communal house (n phr): nhà rông / nhà cộng đồng",
+      "step3": "Công trình văn hóa sinh hoạt chung cho dân làng tụ họp và làm lễ nghi là 'communal house'.",
+      "step4": "Loại B (nhà phố), C (căn hộ), D (nhà tranh cá nhân)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q41",
+    "section": "Section VII: Multiple Choice",
+    "question": "41. _____ and crafts such as pottery and baskets are not only beautiful but also convenient for daily life.",
+    "options": [
+      "A. Tribal dances",
+      "B. Common practices",
+      "C. Native arts",
+      "D. Special styles"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Nghệ thuật bản địa và đồ thủ công như gốm và giỏ xách không chỉ đẹp mà còn tiện lợi.",
+      "step2": "• Native arts and crafts (n phr): nghệ thuật và thủ công bản địa",
+      "step3": "Cụm danh từ ghép nghệ thuật truyền thống địa phương: 'Native arts and crafts'.",
+      "step4": "Loại A (điệu múa), B (tập quán), D (phong cách)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q42",
+    "section": "Section VII: Multiple Choice",
+    "question": "42. This culture trip allows you to _____ culture in the world's most unforgettable destinations.",
+    "options": [
+      "A. experience",
+      "B. pray",
+      "C. admire",
+      "D. celebrate"
+    ],
+    "correct": 0,
+    "explanation": {
+      "step1": "Chuyến đi văn hóa này cho phép bạn trải nghiệm văn hóa ở những điểm đến đáng nhớ nhất.",
+      "step2": "• experience culture (v phr): trải nghiệm văn hóa",
+      "step3": "Động từ kết hợp đi với văn hóa trong chuyến du lịch: 'experience culture'.",
+      "step4": "Loại B (cầu nguyện), C (chiêm ngưỡng), D (ăn mừng)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q43",
+    "section": "Section VII: Multiple Choice",
+    "question": "43. The _____ can be not only performed solo but also a part of an orchestra.",
+    "options": [
+      "A. wooden statue",
+      "B. bamboo pole",
+      "C. bamboo flute",
+      "D. ornamental tree"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Sáo trúc không chỉ có thể trình diễn độc tấu mà còn là một phần của dàn nhạc.",
+      "step2": "• bamboo flute (n): sáo trúc",
+      "step3": "Nhạc cụ biểu diễn độc tấu hoặc trong dàn nhạc là 'bamboo flute' (sáo trúc).",
+      "step4": "Loại A (tượng gỗ), B (cây nêu tre), D (cây cảnh)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q44",
+    "section": "Section VII: Multiple Choice",
+    "question": "44. Fishermen held _____ festivals and wished for luck when fishing in the sea.",
+    "options": [
+      "A. lion",
+      "B. buffalo",
+      "C. whale",
+      "D. dog"
+    ],
+    "correct": 2,
+    "explanation": {
+      "step1": "Những người ngư dân đã tổ chức lễ hội Cầu Ngư (cá ông/cá dông) và cầu may khi đánh bắt trên biển.",
+      "step2": "• whale festival (n phr): lễ hội Cầu Ngư / cá Ông",
+      "step3": "Lễ hội tâm linh truyền thống của ngư dân vùng biển là lễ hội Cá Ông ('whale festival').",
+      "step4": "Loại A (sư tử), B (trâu), D (chó)."
+    }
+  },
+  {
+    "type": "mc",
+    "qNumLabel": "Sec VII - Q45",
+    "section": "Section VII: Multiple Choice",
+    "question": "45. Traveling to Ha Giang, you will have the opportunity to visit ethnic minority villages and _____ markets.",
+    "options": [
+      "A. native",
+      "B. local",
+      "C. folk",
+      "D. communal"
+    ],
+    "correct": 1,
+    "explanation": {
+      "step1": "Du lịch Hà Giang, bạn sẽ có cơ hội ghé thăm các bản làng dân tộc thiểu số và các chợ địa phương.",
+      "step2": "• local markets (n phr): các chợ địa phương / chợ phiên",
+      "step3": "Cụm từ chỉ các khu chợ vùng cao địa phương: 'local markets'.",
+      "step4": "Loại A (bản địa), C (dân gian), D (cộng đồng)."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q1",
+    "section": "Section VIII: Word Formation",
+    "question": "1. The local authority has discussed with the _____ leader to build a new health centre. (tribe)",
+    "correctAnswers": [
+      "tribal"
+    ],
+    "explanation": {
+      "step1": "Chính quyền địa phương đã thảo luận với trưởng bộ lạc để xây dựng một trạm y tế mới.",
+      "step2": "tribe (n) -> tribal (adj): thuộc về bộ lạc",
+      "step3": "Đứng trước danh từ 'leader' cần một TÍNH TỪ bổ nghĩa -> 'tribal leader'.",
+      "step4": "Không dùng dạng danh từ 'tribe'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q2",
+    "section": "Section VIII: Word Formation",
+    "question": "2. Five-coloured _____ rice contains the culinary hues of white, purple, green, yellow and red. (stick)",
+    "correctAnswers": [
+      "sticky"
+    ],
+    "explanation": {
+      "step1": "Xôi ngũ sắc chứa các sắc thái ẩm thực trắng, tím, xanh, vàng và đỏ.",
+      "step2": "stick (v) -> sticky (adj): dẻo/dính (sticky rice = xôi/gạo nếp)",
+      "step3": "Cụm danh từ cố định: 'sticky rice' (xôi/gạo nếp).",
+      "step4": "Không dùng động từ nguyên thể 'stick'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q3",
+    "section": "Section VIII: Word Formation",
+    "question": "3. The monochord, called 'Dan Bau' in Vietnamese, is one of traditional _____ instruments of purely Vietnamese origin. (music)",
+    "correctAnswers": [
+      "musical"
+    ],
+    "explanation": {
+      "step1": "Đàn bầu là một trong những nhạc cụ truyền thống có nguồn gốc thuần Việt.",
+      "step2": "music (n) -> musical (adj): thuộc về âm nhạc",
+      "step3": "Đứng trước danh từ 'instruments' cần TÍNH TỪ bổ nghĩa -> 'musical instruments' (nhạc cụ).",
+      "step4": "Không dùng danh từ 'music'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q4",
+    "section": "Section VIII: Word Formation",
+    "question": "4. The custom of _____ ancestors is prevalent among Vietnamese people. (worship)",
+    "correctAnswers": [
+      "worshipping",
+      "worshiping"
+    ],
+    "explanation": {
+      "step1": "Tập tục thờ cúng tổ tiên rất phổ biến trong cộng đồng người Việt Nam.",
+      "step2": "worship (v) -> worshipping / worshiping (gerund)",
+      "step3": "Đứng sau giới từ 'of' cần một DANH ĐỘNG TỪ (V-ing) -> 'worshipping'.",
+      "step4": "Không dùng động từ nguyên thể 'worship'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q5",
+    "section": "Section VIII: Word Formation",
+    "question": "5. We should find a way to enjoy the _____ activities without impacting our healthy lifestyle. (festival)",
+    "correctAnswers": [
+      "festive"
+    ],
+    "explanation": {
+      "step1": "Chúng ta nên tìm cách tận hưởng các hoạt động lễ hội mà không ảnh hưởng đến lối sống lành mạnh.",
+      "step2": "festival (n) -> festive (adj): thuộc về lễ hội",
+      "step3": "Đứng trước danh từ 'activities' cần một TÍNH TỪ bổ nghĩa -> 'festive activities'.",
+      "step4": "Không dùng danh từ 'festival'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q6",
+    "section": "Section VIII: Word Formation",
+    "question": "6. Sedge mat _____ is a famous traditional handicraft in rural Northern Viet Nam. (weave)",
+    "correctAnswers": [
+      "weaving"
+    ],
+    "explanation": {
+      "step1": "Nghề dệt chiếu coi là một nghề thủ công truyền thống nổi tiếng ở nông thôn Bắc Bộ.",
+      "step2": "weave (v) -> weaving (n): việc dệt / nghề dệt",
+      "step3": "Danh từ đóng vai trò làm bổ ngữ ghép: 'Sedge mat weaving' (nghề dệt chiếu cói).",
+      "step4": "Không dùng động từ nguyên thể 'weave'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q7",
+    "section": "Section VIII: Word Formation",
+    "question": "7. From past to present, the _____ house is a familiar image to each Vietnamese people. (community)",
+    "correctAnswers": [
+      "communal"
+    ],
+    "explanation": {
+      "step1": "Từ xưa đến nay, nhà rông/nhà cộng đồng là hình ảnh quen thuộc với mỗi người dân Việt Nam.",
+      "step2": "community (n) -> communal (adj): thuộc về cộng đồng",
+      "step3": "Đứng trước danh từ 'house' cần TÍNH TỪ bổ nghĩa -> 'communal house' (nhà rông/nhà cộng đồng).",
+      "step4": "Không dùng danh từ 'community'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q8",
+    "section": "Section VIII: Word Formation",
+    "question": "8. They should never treat the elderly in a _____ way like that. (respect)",
+    "correctAnswers": [
+      "disrespectful"
+    ],
+    "explanation": {
+      "step1": "Họ không bao giờ nên đối xử với người lớn tuổi một cách thiếu tôn trọng như vậy.",
+      "step2": "respect (n/v) -> disrespectful (adj): thiếu tôn trọng",
+      "step3": "Dựa vào ngữ cảnh chỉ bộc lộ hành vi xấu 'never treat... like that' -> dùng tính từ phủ định 'disrespectful'.",
+      "step4": "Không dùng tính từ tích cực 'respectful'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q9",
+    "section": "Section VIII: Word Formation",
+    "question": "9. Festival _____ can always enjoy several local specialities and famous agricultural products. (go)",
+    "correctAnswers": [
+      "goers"
+    ],
+    "explanation": {
+      "step1": "Những người đi hội luôn có thể thưởng thức nhiều đặc sản địa phương và nông sản nổi tiếng.",
+      "step2": "go (v) -> goers (n số nhiều): những người đi hội (festival goers)",
+      "step3": "Chủ ngữ số nhiều đi với động từ 'can enjoy' -> 'Festival goers' (những người đi dự lễ hội).",
+      "step4": "Không dùng động từ 'go'."
+    }
+  },
+  {
+    "type": "fill",
+    "qNumLabel": "Sec VIII - Q10",
+    "section": "Section VIII: Word Formation",
+    "question": "10. Ta Leng is known for its beautiful _____ fields that fascinate people, especially in September. (terrace)",
+    "correctAnswers": [
+      "terraced"
+    ],
+    "explanation": {
+      "step1": "Tả Lèng nổi tiếng với những thửa ruộng bậc thang tuyệt đẹp mê hoặc lòng người, đặc biệt vào tháng 9.",
+      "step2": "terrace (n) -> terraced (adj): có hình bậc thang (terraced fields)",
+      "step3": "Cụm danh từ cố định: 'terraced fields' (ruộng bậc thang).",
+      "step4": "Không dùng danh từ 'terrace'."
+    }
+  }
+];
+
+        // Global State variables
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // Web Audio API Sound Generators
+        function playCorrectSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.25);
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.3);
+            } catch(e){}
+        }
+
+        function playWrongSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, ctx.currentTime);
+                osc.frequency.linearRampToValueAtTime(130, ctx.currentTime + 0.3);
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.3);
+            } catch(e){}
+        }
+
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const colors = ['#00D26A', '#FF4757', '#FDCB6E', '#8854C0', '#00C9A7', '#E84393'];
+            
+            for(let i=0; i<90; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: Math.random() * 4 + 3,
+                    rot: Math.random() * 360,
+                    rotSpeed: (Math.random() - 0.5) * 8
+                });
+            }
+
+            let frame = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.rot += p.rotSpeed;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                    ctx.restore();
+                });
+                frame++;
+                if(frame < 100) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            animate();
+        }
+
+        function shuffleOptions(array) {
+            let arr = array.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            quizData.forEach((q, qIdx) => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `q-card-${qIdx}`;
+
+                let passageHTML = '';
+                if(q.passage) {
+                    passageHTML = `<div class="passage-box">${q.passage}</div>`;
+                }
+
+                let interactiveHTML = '';
+
+                if(q.type === 'mc') {
+                    const shuffled = shuffleOptions(q.options);
+                    q.shuffledOptions = shuffled;
+
+                    let optionsHTML = '';
+                    shuffled.forEach((opt, optIdx) => {
+                        optionsHTML += `
+                            <button class="option-btn" 
+                                    id="opt-${qIdx}-${optIdx}" 
+                                    onclick="selectOption(${qIdx}, ${optIdx}, ${opt.originalIndex})">
+                                ${opt.text}
+                            </button>
+                        `;
+                    });
+
+                    interactiveHTML = `<div class="options-grid" id="opts-grid-${qIdx}">${optionsHTML}</div>`;
+                } else if(q.type === 'fill') {
+                    interactiveHTML = `
+                        <div class="fill-input-wrapper">
+                            <input type="text" class="text-input" id="input-${qIdx}" placeholder="Nhập đáp án của bạn vào đây..." autocomplete="off">
+                            <button class="check-btn" id="check-btn-${qIdx}" onclick="checkFillAnswer(${qIdx})">Kiểm tra 🚀</button>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div>
+                        <span class="section-tag">${q.section}</span>
+                        <span class="question-number">${q.qNumLabel} (${qIdx + 1}/${quizData.length})</span>
+                    </div>
+                    ${passageHTML}
+                    <div class="question-text">${q.question}</div>
+                    ${interactiveHTML}
+                    <div class="explanation-box" id="exp-${qIdx}">
+                        <div class="exp-title">💡 GIẢI THÍCH CHI TIẾT TỪ MS LÊ HẰNG:</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 1 (Dịch câu):</span> ${q.explanation.step1}</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 2 (Từ vựng/Đáp án):</span><br>${q.explanation.step2}</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 3 (Tại sao ĐÚNG):</span> ${q.explanation.step3}</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 4 (Tại sao SAI / Hướng dẫn sửa):</span> ${q.explanation.step4}</div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function selectOption(qIdx, shuffledIdx, originalIdx) {
+            if(userAnswers[qIdx] !== null) return;
+
+            const q = quizData[qIdx];
+            userAnswers[qIdx] = (originalIdx === q.correct);
+
+            const grid = document.getElementById(`opts-grid-${qIdx}`);
+            const buttons = grid.querySelectorAll('.option-btn');
+            
+            buttons.forEach(btn => btn.disabled = true);
+
+            const selectedBtn = document.getElementById(`opt-${qIdx}-${shuffledIdx}`);
+
+            if(originalIdx === q.correct) {
+                selectedBtn.classList.add('correct');
+                playCorrectSound();
+                triggerConfetti();
+            } else {
+                selectedBtn.classList.add('wrong');
+                playWrongSound();
+                
+                q.shuffledOptions.forEach((opt, idx) => {
+                    if(opt.originalIndex === q.correct) {
+                        document.getElementById(`opt-${qIdx}-${idx}`).classList.add('correct');
+                    }
+                });
+            }
+
+            const expBox = document.getElementById(`exp-${qIdx}`);
+            expBox.style.display = 'block';
+        }
+
+        function checkFillAnswer(qIdx) {
+            if(userAnswers[qIdx] !== null) return;
+
+            const q = quizData[qIdx];
+            const inputEl = document.getElementById(`input-${qIdx}`);
+            const checkBtn = document.getElementById(`check-btn-${qIdx}`);
+            const userVal = inputEl.value.trim().toLowerCase();
+
+            if(!userVal) {
+                alert("Vui lòng nhập đáp án trước khi bấm kiểm tra nhé!");
+                return;
+            }
+
+            inputEl.disabled = true;
+            checkBtn.disabled = true;
+
+            const isCorrect = q.correctAnswers.some(ans => ans.toLowerCase() === userVal);
+            userAnswers[qIdx] = isCorrect;
+
+            if(isCorrect) {
+                inputEl.style.borderColor = "#00D26A";
+                inputEl.style.backgroundColor = "#E8F8F0";
+                playCorrectSound();
+                triggerConfetti();
+            } else {
+                inputEl.style.borderColor = "#FF4757";
+                inputEl.style.backgroundColor = "#FFEAEA";
+                inputEl.classList.add('wrong');
+                playWrongSound();
+            }
+
+            const expBox = document.getElementById(`exp-${qIdx}`);
+            expBox.style.display = 'block';
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+            userAnswers.forEach(ans => {
+                if(ans === true) correctCount++;
+            });
+
+            const total = quizData.length;
+            const percentage = Math.round((correctCount / total) * 100);
+
+            document.getElementById('modal-score').innerText = `${correctCount}/${total}`;
+
+            let feedback = '';
+            if(percentage < 50) {
+                feedback = '“Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”';
+            } else if(percentage <= 80) {
+                feedback = '“Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”';
+            } else {
+                feedback = '“Làm tốt lắm, con cố gắng rinh điểm 10 ở lần sau nha!”';
+                triggerConfetti();
+            }
+
+            document.getElementById('modal-msg').innerText = feedback;
+            document.getElementById('result-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+
+        window.onload = renderQuiz;
+    </script>
+</body>
+</html>
